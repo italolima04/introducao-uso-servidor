@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showListBooks() {
+        books.clear();
         db.collection("books")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -138,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
             }
+            showListBooks();
             arrayAdapterBooks.notifyDataSetChanged();
         }else if(resultCode == SecondaryActivity.RESULT_APPLY && requestCode == REQUEST_EDIT) {
             if(data.getExtras() != null) {
@@ -182,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+            showListBooks();
             arrayAdapterBooks.notifyDataSetChanged();
         }else if(resultCode == SecondaryActivity.RESULT_APPLY && requestCode == REQUEST_DELETE) {
             if(data.getExtras() != null) {
@@ -215,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
             }
+            showListBooks();
             arrayAdapterBooks.notifyDataSetChanged();
         }
     }
