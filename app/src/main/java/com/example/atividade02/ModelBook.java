@@ -3,13 +3,13 @@ package com.example.atividade02;
 import java.io.Serializable;
 
 public class ModelBook implements Serializable {
-    int id;
+    Long id;
     String title;
     String isbn;
     String author;
     String bookMaker;
 
-    public ModelBook(int id, String title, String isbn, String author, String bookMaker) {
+    public ModelBook(long id, String title, String isbn, String author, String bookMaker) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
@@ -17,11 +17,11 @@ public class ModelBook implements Serializable {
         this.bookMaker = bookMaker;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

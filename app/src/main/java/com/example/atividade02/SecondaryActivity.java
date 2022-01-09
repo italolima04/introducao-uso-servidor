@@ -2,13 +2,20 @@ package com.example.atividade02;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class SecondaryActivity extends AppCompatActivity {
-    public static int RESULT_ADD = 1;
+    public static int RESULT_APPLY = 1;
     public static int RESULT_CANCEL = 2;
     EditText editId, editTitle, editIsbn, editAuthor, editBookMaker;
     int id;
@@ -40,7 +47,7 @@ public class SecondaryActivity extends AppCompatActivity {
         }
     }
 
-    public void add(View view) {
+    public void apply(View view) {
         Intent intent = new Intent();
         String title = editTitle.getText().toString();
         String isbn = editIsbn.getText().toString();
@@ -51,7 +58,7 @@ public class SecondaryActivity extends AppCompatActivity {
 
         intent.putExtra("book", book);
 
-        setResult(RESULT_ADD, intent);
+        setResult(RESULT_APPLY, intent);
 
         finish();
     }
